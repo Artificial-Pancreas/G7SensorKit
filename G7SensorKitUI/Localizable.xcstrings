@@ -375,8 +375,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ can read G7 CGM data, but you must still use the Dexcom G7 App for pairing, calibration, and other sensor management."
+            "state" : "translated",
+            "value" : "%1$@ kan läsa G7 CGM-värden, men du måste alltjämt använda Dexcom G7-appen för parkoppling, kalibrering samt hantering av sensorn."
           }
         },
         "tr" : {
@@ -2973,8 +2973,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Open Dexcom App"
+            "state" : "translated",
+            "value" : "Öppna Dexcom-appen"
           }
         },
         "tr" : {
@@ -3383,8 +3383,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Searching for\nSensor"
+            "state" : "translated",
+            "value" : "Söker efter sensor"
           }
         },
         "tr" : {
@@ -3657,8 +3657,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nExpired"
+            "state" : "translated",
+            "value" : "Sensor har gått ut"
           }
         },
         "tr" : {
@@ -3794,8 +3794,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nFailed"
+            "state" : "translated",
+            "value" : "Sensor\nmisslyckades"
           }
         },
         "tr" : {
@@ -3931,8 +3931,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nIssue"
+            "state" : "translated",
+            "value" : "Sensorproblem"
           }
         },
         "tr" : {
@@ -4068,8 +4068,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nWarmup"
+            "state" : "translated",
+            "value" : "Sensoruppvärmning"
           }
         },
         "tr" : {
@@ -4890,8 +4890,8 @@
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Signal\nLoss"
+            "state" : "translated",
+            "value" : "Signalförlust"
           }
         },
         "tr" : {
