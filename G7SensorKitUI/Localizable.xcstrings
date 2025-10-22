@@ -3496,7 +3496,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Platnosť senzora vypršala"
+            "value" : "Platnosť senzora exspirovala"
           }
         },
         "sv" : {
@@ -4151,7 +4151,7 @@
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Platnosť senzora vypršala"
+            "value" : "Platnosť senzora exspirovala"
           }
         },
         "sv" : {
