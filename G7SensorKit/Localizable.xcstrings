@@ -88,6 +88,12 @@
             "value" : "Dexcom G7"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dexcom G7"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -214,6 +220,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Glucose data is unavailable"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Glucose data is unavailable"
@@ -350,6 +362,12 @@
             "value" : "Sensor expired"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor expired"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -476,6 +494,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor failed"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor failed"
@@ -612,6 +636,12 @@
             "value" : "Sensor is in unknown state %1$d"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor is in unknown state %1$d"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -738,6 +768,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor is OK"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor is OK"
@@ -874,6 +910,12 @@
             "value" : "Sensor is stopped"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor is stopped"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1000,6 +1042,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor is warming up"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor is warming up"
