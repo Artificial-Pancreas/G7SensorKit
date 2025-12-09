@@ -87,6 +87,12 @@
             "value" : ""
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -218,6 +224,12 @@
             "value" : "– – –"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "– – –"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "new",
@@ -267,8 +279,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ can read G7 CGM data, but you must still use the Dexcom G7 App for pairing, calibration, and other sensor management."
+            "state" : "translated",
+            "value" : "يمكن لـ %1$@ قراءة بيانات جهاز G7 CGM، ولكن يجب عليك الاستمرار في استخدام تطبيق Dexcom G7 للمزاوجة، والمعايرة، وإدارة المستشعر الأخرى."
           }
         },
         "da" : {
@@ -344,6 +356,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ can read G7 CGM data, but you must still use the Dexcom G7 App for pairing, calibration, and other sensor management."
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ can read G7 CGM data, but you must still use the Dexcom G7 App for pairing, calibration, and other sensor management."
@@ -479,6 +497,12 @@
             "value" : "Are you sure you want to delete this CGM?"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Are you sure you want to delete this CGM?"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -604,6 +628,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Bluetooth"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Bluetooth"
@@ -740,6 +770,12 @@
             "value" : "Cancelar"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -868,6 +904,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajustes"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Configuration"
           }
         },
         "ru" : {
@@ -1001,6 +1043,12 @@
             "value" : "Conectado"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connected"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1130,6 +1178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Conectando"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connecting"
           }
         },
         "ru" : {
@@ -1263,6 +1317,12 @@
             "value" : "Continuar"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Continue"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1389,6 +1449,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete CGM"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete CGM"
@@ -1525,6 +1591,12 @@
             "value" : "Dexcom G7"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Dexcom G7"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1653,6 +1725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
           }
         },
         "ru" : {
@@ -1786,6 +1864,12 @@
             "value" : "Glicose"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Glucose"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1912,6 +1996,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Grace Period End"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Grace Period End"
@@ -2048,6 +2138,12 @@
             "value" : "Grace period remaining"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Grace period remaining"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2174,6 +2270,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "HIGH"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "HIGH"
@@ -2310,6 +2412,12 @@
             "value" : "Last Connect"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Last Connect"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2435,6 +2543,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Last Reading"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Last Reading"
@@ -2571,6 +2685,12 @@
             "value" : "LOW"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "LOW"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2702,6 +2822,12 @@
             "value" : "Nome"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Name"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2751,8 +2877,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Open Dexcom App"
+            "state" : "translated",
+            "value" : "فتح تطبيق Dexcom"
           }
         },
         "da" : {
@@ -2828,6 +2954,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open Dexcom App"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Open Dexcom App"
@@ -2958,6 +3090,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scan for new sensor"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Scan for new sensor"
@@ -3094,6 +3232,12 @@
             "value" : "Scanning"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scanning"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3143,8 +3287,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Searching for\nSensor"
+            "state" : "translated",
+            "value" : "البحث عن</br>\nالمستشعر (Sensor)"
           }
         },
         "da" : {
@@ -3220,6 +3364,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Searching for\nSensor"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Searching for\nSensor"
@@ -3356,6 +3506,12 @@
             "value" : "Searching for sensor"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Searching for sensor"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3405,8 +3561,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nExpired"
+            "state" : "translated",
+            "value" : "إنتهاء صلاحية المستشعر"
           }
         },
         "da" : {
@@ -3487,6 +3643,12 @@
             "value" : "Sensor\nExpired"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor\nExpired"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3536,8 +3698,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nFailed"
+            "state" : "translated",
+            "value" : "المستشعر (Sensor)</br>\nفشل"
           }
         },
         "da" : {
@@ -3618,6 +3780,12 @@
             "value" : "Sensor\nFailed"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor\nFailed"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3667,8 +3835,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nIssue"
+            "state" : "translated",
+            "value" : "مشكلة في المستشعر"
           }
         },
         "da" : {
@@ -3749,6 +3917,12 @@
             "value" : "Sensor\nIssue"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor\nIssue"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3798,8 +3972,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nWarmup"
+            "state" : "translated",
+            "value" : "إحماء\nالمستشعر"
           }
         },
         "da" : {
@@ -3875,6 +4049,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor\nWarmup"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor\nWarmup"
@@ -4011,6 +4191,12 @@
             "value" : "Sensor Expiration"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor Expiration"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4137,6 +4323,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor expired"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor expired"
@@ -4273,6 +4465,12 @@
             "value" : "Sensor expires"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor expires"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4399,6 +4597,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor failed"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sensor failed"
@@ -4535,6 +4739,12 @@
             "value" : "Sensor Start"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sensor Start"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4584,8 +4794,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Signal\nLoss"
+            "state" : "translated",
+            "value" : "فقدان الإشارة"
           }
         },
         "da" : {
@@ -4661,6 +4871,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Signal\nLoss"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Signal\nLoss"
@@ -4797,6 +5013,12 @@
             "value" : "Hora"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Time"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4923,6 +5145,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Trend"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Trend"
@@ -5059,6 +5287,12 @@
             "value" : "Upload Readings"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Upload Readings"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5185,6 +5419,12 @@
           }
         },
         "pt-BR" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Warmup completes"
+          }
+        },
+        "ro" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Warmup completes"
