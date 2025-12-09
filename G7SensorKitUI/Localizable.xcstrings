@@ -279,8 +279,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ can read G7 CGM data, but you must still use the Dexcom G7 App for pairing, calibration, and other sensor management."
+            "state" : "translated",
+            "value" : "يمكن لـ %1$@ قراءة بيانات جهاز G7 CGM، ولكن يجب عليك الاستمرار في استخدام تطبيق Dexcom G7 للمزاوجة، والمعايرة، وإدارة المستشعر الأخرى."
           }
         },
         "da" : {
@@ -2877,8 +2877,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Open Dexcom App"
+            "state" : "translated",
+            "value" : "فتح تطبيق Dexcom"
           }
         },
         "da" : {
@@ -3287,8 +3287,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Searching for\nSensor"
+            "state" : "translated",
+            "value" : "البحث عن</br>\nالمستشعر (Sensor)"
           }
         },
         "da" : {
@@ -3561,8 +3561,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nExpired"
+            "state" : "translated",
+            "value" : "إنتهاء صلاحية المستشعر"
           }
         },
         "da" : {
@@ -3698,8 +3698,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nFailed"
+            "state" : "translated",
+            "value" : "المستشعر (Sensor)</br>\nفشل"
           }
         },
         "da" : {
@@ -3835,8 +3835,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nIssue"
+            "state" : "translated",
+            "value" : "مشكلة في المستشعر"
           }
         },
         "da" : {
@@ -3972,8 +3972,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nWarmup"
+            "state" : "translated",
+            "value" : "إحماء\nالمستشعر"
           }
         },
         "da" : {
@@ -4794,8 +4794,8 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Signal\nLoss"
+            "state" : "translated",
+            "value" : "فقدان الإشارة"
           }
         },
         "da" : {
