@@ -848,7 +848,7 @@
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Configuration"
           }
         },
@@ -860,7 +860,7 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Configuration"
           }
         },
@@ -890,7 +890,7 @@
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Configuration"
           }
         },
@@ -908,8 +908,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Configuration"
+            "state" : "translated",
+            "value" : "Configurare"
           }
         },
         "ru" : {
@@ -961,7 +961,7 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Connected"
           }
         },
@@ -1003,7 +1003,7 @@
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Connected"
           }
         },
@@ -1045,8 +1045,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Connected"
+            "state" : "translated",
+            "value" : "Conectat"
           }
         },
         "ru" : {
@@ -1098,7 +1098,7 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Connecting"
           }
         },
@@ -1140,7 +1140,7 @@
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Connecting"
           }
         },
@@ -1182,8 +1182,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Connecting"
+            "state" : "translated",
+            "value" : "Se conectează"
           }
         },
         "ru" : {
@@ -1271,13 +1271,13 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Continue"
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Continue"
           }
         },
@@ -1319,8 +1319,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Continue"
+            "state" : "translated",
+            "value" : "Continuați"
           }
         },
         "ru" : {
@@ -1681,7 +1681,7 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Done"
           }
         },
@@ -1695,6 +1695,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fine"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ferdig"
           }
         },
         "nb-NO" : {
@@ -1711,7 +1717,7 @@
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Done"
           }
         },
@@ -1729,8 +1735,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Done"
+            "state" : "translated",
+            "value" : "Realizat"
           }
         },
         "ru" : {
@@ -1909,7 +1915,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "葡萄糖"
+            "value" : "血糖"
           }
         }
       }
@@ -1969,6 +1975,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fine periodo di tolleranza"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reserveperiode utløpt"
           }
         },
         "nb-NO" : {
@@ -2106,6 +2118,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Periodo di tolleranza residuo"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reserveperiode utløper om"
           }
         },
         "nb-NO" : {
@@ -2456,8 +2474,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Last Connect"
+            "state" : "translated",
+            "value" : "上次连接"
           }
         }
       }
@@ -3174,7 +3192,7 @@
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         },
@@ -3186,13 +3204,13 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         },
@@ -3216,7 +3234,7 @@
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         },
@@ -3228,14 +3246,14 @@
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Scanning"
+            "state" : "translated",
+            "value" : "Se scanează"
           }
         },
         "ru" : {
@@ -3276,7 +3294,7 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Scanning"
           }
         }
