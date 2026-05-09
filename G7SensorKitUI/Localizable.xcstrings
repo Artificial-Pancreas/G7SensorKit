@@ -1736,7 +1736,7 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Realizat"
+            "value" : "Gata"
           }
         },
         "ru" : {
@@ -3389,8 +3389,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Searching for\nSensor"
+            "state" : "translated",
+            "value" : "Detectarea\nSenzorului"
           }
         },
         "ru" : {
@@ -3663,8 +3663,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nExpired"
+            "state" : "translated",
+            "value" : "Senzor\nExpirat"
           }
         },
         "ru" : {
@@ -3800,8 +3800,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nFailed"
+            "state" : "translated",
+            "value" : "Senzor\nEșuat"
           }
         },
         "ru" : {
@@ -3937,8 +3937,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nIssue"
+            "state" : "translated",
+            "value" : "Problemă\nSenzor"
           }
         },
         "ru" : {
@@ -4074,8 +4074,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor\nWarmup"
+            "state" : "translated",
+            "value" : "Încălzire\nSenzor"
           }
         },
         "ru" : {
@@ -4211,8 +4211,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor Expiration"
+            "state" : "translated",
+            "value" : "Expirare Senzor"
           }
         },
         "ru" : {
@@ -4759,8 +4759,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Sensor Start"
+            "state" : "translated",
+            "value" : "Pornire Senzor"
           }
         },
         "ru" : {
@@ -4896,8 +4896,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Signal\nLoss"
+            "state" : "translated",
+            "value" : "Pierdere\nSemnal"
           }
         },
         "ru" : {
@@ -5170,8 +5170,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Trend"
+            "state" : "translated",
+            "value" : "Tendință"
           }
         },
         "ru" : {
@@ -5444,8 +5444,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Warmup completes"
+            "state" : "translated",
+            "value" : "Încălzire încheiată"
           }
         },
         "ru" : {
