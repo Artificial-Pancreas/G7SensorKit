@@ -178,8 +178,8 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "– – –"
+            "state" : "translated",
+            "value" : "---"
           }
         },
         "hu" : {
@@ -772,8 +772,8 @@
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Cancel"
+            "state" : "translated",
+            "value" : "Anulați"
           }
         },
         "ru" : {
@@ -2247,8 +2247,8 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "HIGH"
+            "state" : "translated",
+            "value" : "גבוה"
           }
         },
         "hu" : {
@@ -2657,8 +2657,8 @@
         },
         "he" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "LOW"
+            "state" : "translated",
+            "value" : "נמוך"
           }
         },
         "hu" : {
