@@ -40,7 +40,7 @@ extension G7CGMManager: CGMManagerUI {
     }
 
     public var smallImage: UIImage? {
-        UIImage(named: "g7", in: Bundle(for: G7SettingsViewModel.self), compatibleWith: nil)!
+        sensorModel.uiImage ?? G7SensorModel.g7.uiImage
     }
 
     // TODO Placeholder.
@@ -53,7 +53,34 @@ extension G7CGMManager: CGMManagerUI {
                 state: .normalCGM)
         }
 
+        if lifecycleState == .connecting {
+            return G7DeviceStatusHighlight(
+                localizedMessage: LocalizedString("Waiting for\nSensor", comment: "G7 Status highlight text after pairing, before the first reading"),
+                imageName: "dot.radiowaves.left.and.right",
+                state: .normalCGM)
+        }
+
+        // A refusal newer than the last reading is why there is no data; say
+        // so instead of letting it look like signal loss.
+        if state.sessionMode == .direct,
+           let failureDate = state.lastAuthenticationFailureDate,
+           failureDate > (state.latestReadingTimestamp ?? .distantPast)
+        {
+            return G7DeviceStatusHighlight(
+                localizedMessage: LocalizedString("Connection\nRefused", comment: "G7 Status highlight text after the sensor refused authentication"),
+                imageName: "exclamationmark.circle.fill",
+                state: .critical)
+        }
+
         if lifecycleState == .expired {
+            // In direct mode nothing happens until the user pairs the next
+            // sensor, so the highlight should send them there.
+            if state.sessionMode == .direct {
+                return G7DeviceStatusHighlight(
+                    localizedMessage: LocalizedString("Pair New\nSensor", comment: "G7 Status highlight text when an expired direct-mode sensor needs replacing"),
+                    imageName: "plus.circle",
+                    state: .critical)
+            }
             return G7DeviceStatusHighlight(
                 localizedMessage: LocalizedString("Sensor\nExpired", comment: "G7 Status highlight text for sensor expired"),
                 imageName: "clock",
@@ -61,6 +88,12 @@ extension G7CGMManager: CGMManagerUI {
         }
 
         if lifecycleState == .failed {
+            if state.sessionMode == .direct {
+                return G7DeviceStatusHighlight(
+                    localizedMessage: LocalizedString("Pair New\nSensor", comment: "G7 Status highlight text when an expired direct-mode sensor needs replacing"),
+                    imageName: "plus.circle",
+                    state: .critical)
+            }
             return G7DeviceStatusHighlight(
                 localizedMessage: LocalizedString("Sensor\nFailed", comment: "G7 Status highlight text for sensor failed"),
                 imageName: "exclamationmark.circle.fill",
