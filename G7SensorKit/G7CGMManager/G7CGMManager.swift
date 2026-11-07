@@ -499,12 +499,14 @@ public class G7CGMManager: CGMManager {
         return lines.joined(separator: "\n")
     }
 
-    public func acknowledgeAlert(alertIdentifier: Alert.AlertIdentifier) async throws { }
+    public func acknowledgeAlert(alertIdentifier: Alert.AlertIdentifier, completion: @escaping (Error?) -> Void) {
+        completion(nil)
+    }
 
     public func getSoundBaseURL() -> URL? { return nil }
     public func getSounds() -> [Alert.Sound] { return [] }
 
-    public let pluginIdentifier: String = "G7CGMManager"
+    public static let pluginIdentifier: String = "G7CGMManager"
 
     /// The model of the sensor in use, once one is known. G7 until then; the
     /// three models share one plugin and one protocol.
@@ -600,7 +602,7 @@ extension G7CGMManager {
     /// immediate until the user acknowledges it. A deleted CGM's scheduled
     /// expiry reminders would keep firing for weeks (LibreLoop #13). The
     /// retractions are awaited before the delegate is asked to delete us.
-    public func delete() async {
+    public func delete(completion: @escaping () -> Void) {
         cancelSuspectedSessionEndScan()
         // A manager passed its configuration lets go of the sensor and nothing more: the sensor's
         // lifecycle and records belong to the controller that passed it.
@@ -612,11 +614,19 @@ extension G7CGMManager {
             recordSensorEndIfNeeded()
             archiveCurrentSensor(reason: .deleted)
         }
+        // iAPS: alert calls are synchronous on the `dev` LoopKit, so the retractions are in
+        // before the deletion notice without awaiting.
         let delegate = cgmManagerDelegate
         for alert in G7LifecycleAlert.allCases {
-            await delegate?.retractAlert(identifier: alert.identifier(managerIdentifier: pluginIdentifier))
+            delegate?.retractAlert(identifier: alert.identifier(managerIdentifier: pluginIdentifier))
         }
-        await delegate?.cgmManagerWantsDeletion(self)
+        notifyDelegateOfDeletion(completion: completion)
+    }
+
+    public func delete() async {
+        await withCheckedContinuation { continuation in
+            delete { continuation.resume() }
+        }
     }
 
     // MARK: - Session events
@@ -749,18 +759,14 @@ extension G7CGMManager {
             logDeviceCommunication("Issuing alert \(alert.rawValue)", type: .connection)
         }
         delegate.notify { delegate in
-            Task {
-                await delegate?.issueAlert(loopAlert)
-            }
+            delegate?.issueAlert(loopAlert)
         }
     }
 
     private func retractLifecycleAlert(_ alert: G7LifecycleAlert) {
         let identifier = alert.identifier(managerIdentifier: pluginIdentifier)
         delegate.notify { delegate in
-            Task {
-                await delegate?.retractAlert(identifier: identifier)
-            }
+            delegate?.retractAlert(identifier: identifier)
         }
     }
 
@@ -856,7 +862,7 @@ extension G7CGMManager: G7SensorDelegate {
                 let alert = Alert(identifier: Alert.Identifier(managerIdentifier: pluginIdentifier, alertIdentifier: "directRead.codeNeeded"),
                                   foregroundContent: content, backgroundContent: content, trigger: .immediate)
                 delegate.notify { delegate in
-                    Task { await delegate?.issueAlert(alert) }
+                    delegate?.issueAlert(alert)
                 }
             }
         }

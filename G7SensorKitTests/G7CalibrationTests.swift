@@ -17,27 +17,26 @@ private class TestBluetoothManager: G7BluetoothManager {
 }
 
 /// Records the reading results the manager hands Loop.
-@MainActor
 private final class ReadingRecordingDelegate: CGMManagerDelegate {
-    nonisolated(unsafe) var readingResults: [CGMReadingResult] = []
+    var readingResults: [CGMReadingResult] = []
 
-    nonisolated func cgmManager(_ manager: CGMManager, hasNew readingResult: CGMReadingResult) {
+    func cgmManager(_ manager: CGMManager, hasNew readingResult: CGMReadingResult) {
         readingResults.append(readingResult)
     }
 
-    func issueAlert(_ alert: Alert) async {}
-    func retractAlert(identifier: Alert.Identifier) async {}
-    func cgmManagerWantsDeletion(_ manager: CGMManager) async {}
-    nonisolated func doesIssuedAlertExist(identifier: Alert.Identifier) async throws -> Bool { false }
-    nonisolated func lookupAllUnretracted(managerIdentifier: String) async throws -> [PersistedAlert] { [] }
-    nonisolated func lookupAllUnacknowledgedUnretracted(managerIdentifier: String) async throws -> [PersistedAlert] { [] }
-    nonisolated func recordRetractedAlert(_ alert: Alert, at date: Date) async throws {}
-    nonisolated func deviceManager(_ manager: DeviceManager, logEventForDeviceIdentifier deviceIdentifier: String?, type: DeviceLogEntryType, message: String, completion: ((Error?) -> Void)?) {}
-    nonisolated func cgmManager(_ manager: CGMManager, didUpdate status: CGMManagerStatus) {}
-    nonisolated func startDateToFilterNewData(for manager: CGMManager) -> Date? { nil }
-    nonisolated func cgmManager(_ manager: CGMManager, hasNew events: [PersistedCgmEvent]) {}
-    nonisolated func cgmManagerDidUpdateState(_ manager: CGMManager) {}
-    nonisolated func credentialStoragePrefix(for manager: CGMManager) -> String { "test" }
+    func issueAlert(_ alert: Alert) {}
+    func retractAlert(identifier: Alert.Identifier) {}
+    func cgmManagerWantsDeletion(_ manager: CGMManager) {}
+    func doesIssuedAlertExist(identifier: Alert.Identifier, completion: @escaping (Swift.Result<Bool, Error>) -> Void) { completion(.success(false)) }
+    func lookupAllUnretracted(managerIdentifier: String, completion: @escaping (Swift.Result<[PersistedAlert], Error>) -> Void) { completion(.success([])) }
+    func lookupAllUnacknowledgedUnretracted(managerIdentifier: String, completion: @escaping (Swift.Result<[PersistedAlert], Error>) -> Void) { completion(.success([])) }
+    func recordRetractedAlert(_ alert: Alert, at date: Date) {}
+    func deviceManager(_ manager: DeviceManager, logEventForDeviceIdentifier deviceIdentifier: String?, type: DeviceLogEntryType, message: String, completion: ((Error?) -> Void)?) {}
+    func cgmManager(_ manager: CGMManager, didUpdate status: CGMManagerStatus) {}
+    func startDateToFilterNewData(for manager: CGMManager) -> Date? { nil }
+    func cgmManager(_ manager: CGMManager, hasNew events: [PersistedCgmEvent]) {}
+    func cgmManagerDidUpdateState(_ manager: CGMManager) {}
+    func credentialStoragePrefix(for manager: CGMManager) -> String { "test" }
 }
 
 final class G7CalibrationTests: XCTestCase {
