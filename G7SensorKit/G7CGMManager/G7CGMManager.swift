@@ -66,6 +66,7 @@ public class G7CGMManager: CGMManager {
             g7StateObservers.forEach { (observer) in
                 observer.g7StateDidUpdate(newValue)
             }
+            notifyStatusObservers()
         }
 
         return returnType
@@ -84,6 +85,11 @@ public class G7CGMManager: CGMManager {
 
     private let g7StateObservers = WeakSynchronizedSet<G7StateObserver>()
 
+    private let statusObservers = WeakSynchronizedSet<CGMManagerStatusObserver>()
+
+    /// What status observers were last told: they hear only of a change.
+    private let lockedReportedStatus = Locked<(status: CGMManagerStatus, searching: Bool, note: String?)?>(nil)
+
     public weak var cgmManagerDelegate: CGMManagerDelegate? {
         get {
             return delegate.delegate
@@ -93,6 +99,7 @@ public class G7CGMManager: CGMManager {
         }
     }
 
+    // iAPS: the `dev` LoopKit still routes delegate calls through a queue the host sets.
     public var delegateQueue: DispatchQueue! {
         get {
             return delegate.queue
@@ -196,7 +203,7 @@ public class G7CGMManager: CGMManager {
         case .connecting, .warmup, .ok, .gracePeriod:
             hasValidSensorSession = true
         }
-        return CGMManagerStatus(hasValidSensorSession: hasValidSensorSession, device: device)
+        return CGMManagerStatus(hasValidSensorSession: hasValidSensorSession, lastCommunicationDate: lastConnect, device: device)
     }
 
     public var lifecycleState: G7SensorLifecycleState {
@@ -297,10 +304,6 @@ public class G7CGMManager: CGMManager {
         self.init(state: state, sensor: sensor)
         sensor.needsVersionInfo = state.extendedVersion == nil || state.transmitterVersion == nil
     }
-
-    /// Posted on the main queue when `needsCodeForSensor` or `isSearchingForSensor` changes; the
-    /// object is the manager.
-    public static let statusDidChange = Notification.Name("G7CGMManagerStatusDidChange")
 
     /// The sensor a direct connection would reach without a pairing code or key; nil once one exists.
     public var needsCodeForSensor: String? { sensor.needsCodeForSensor }
@@ -480,6 +483,8 @@ public class G7CGMManager: CGMManager {
             "## G7CGMManager",
             "sensorID: \(String(describing: state.sensorID))",
             "activatedAt: \(String(describing: state.activatedAt))",
+            "transmitterVersion: \(String(describing: state.transmitterVersion))",
+            "extendedVersion: \(String(describing: state.extendedVersion))",
             "latestReading: \(String(describing: state.latestReading))",
             "latestReadingTimestamp: \(String(describing: state.latestReadingTimestamp))",
             "latestConnect: \(String(describing: state.latestConnect))",
@@ -523,12 +528,6 @@ public class G7CGMManager: CGMManager {
 
     public var appURL: URL? {
         return nil
-    }
-
-    /// For a wake that is not the sensor's own (on the watch, each context from the phone): makes sure
-    /// a connect is standing or a scan running. No effect on the phone.
-    public func recheckAcquisition() {
-        sensor.recheckAcquisition()
     }
 
     public func scanForNewSensor() {
@@ -602,8 +601,8 @@ public class G7CGMManager: CGMManager {
     }
 
     private func updateDelegate(with result: CGMReadingResult) {
-        delegateQueue?.async {
-            self.cgmManagerDelegate?.cgmManager(self, hasNew: result)
+        delegate.notify { delegate in
+            delegate?.cgmManager(self, hasNew: result)
         }
     }
 }
@@ -836,6 +835,31 @@ extension G7CGMManager {
     public func removeStateObserver(_ observer: G7StateObserver) {
         g7StateObservers.removeElement(observer)
     }
+
+    // MARK: - CGMManagerStatusObserver
+
+    public func addStatusObserver(_ observer: CGMManagerStatusObserver, queue: DispatchQueue) {
+        statusObservers.insert(observer, queue: queue)
+    }
+
+    public func removeStatusObserver(_ observer: CGMManagerStatusObserver) {
+        statusObservers.removeElement(observer)
+    }
+
+    /// On a change of the status, or of the search or the note, which live in the sensor.
+    private func notifyStatusObservers() {
+        let status = cgmManagerStatus
+        let reported = (status: status, searching: isSearchingForSensor, note: shortStatusNote)
+        var changed = false
+        lockedReportedStatus.mutate { last in
+            if let previous = last, previous.status == reported.status,
+               previous.searching == reported.searching, previous.note == reported.note { return }
+            last = reported
+            changed = true
+        }
+        guard changed else { return }
+        statusObservers.forEach { $0.cgmManager(self, didUpdate: status) }
+    }
 }
 
 extension G7CGMManager: G7SensorDelegate {
@@ -915,9 +939,7 @@ extension G7CGMManager: G7SensorDelegate {
     }
 
     public func sensorStatusDidChange(_ sensor: G7Sensor) {
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: G7CGMManager.statusDidChange, object: self)
-        }
+        notifyStatusObservers()
     }
 
     public func sensorDidInvalidateSharedKey(_ sensor: G7Sensor) {

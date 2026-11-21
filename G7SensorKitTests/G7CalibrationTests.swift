@@ -178,7 +178,6 @@ final class G7CalibrationTests: XCTestCase {
         let manager = G7CGMManager(state: state, sensor: sensor)
         let recorder = ReadingRecordingDelegate()
         manager.cgmManagerDelegate = recorder
-        manager.delegateQueue = DispatchQueue.main
 
         let enteredAt = Date(timeIntervalSince1970: 1_700_000_000)
         manager.calibrate(glucose: 145, at: enteredAt)
@@ -211,7 +210,6 @@ final class G7CalibrationTests: XCTestCase {
         let manager = G7CGMManager(state: state, sensor: sensor)
         let recorder = ReadingRecordingDelegate()
         manager.cgmManagerDelegate = recorder
-        manager.delegateQueue = DispatchQueue.main
         sensor.activationDate = Date(timeIntervalSince1970: 1_700_000_000)
 
         // Byte 18 = 0x1f (bgTriggered), as the sensor sends after a calibration.

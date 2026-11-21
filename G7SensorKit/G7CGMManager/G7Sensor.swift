@@ -366,10 +366,6 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
         bluetoothManager.scanForPeripheral()
     }
 
-    func recheckAcquisition() {
-        bluetoothManager.recheckAcquisition()
-    }
-
     public func stopScanning() {
         bluetoothManager.disconnect()
     }
@@ -723,6 +719,8 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
 
         case .eavesdropping:
             peripheralManager.perform { (peripheral) in
+                // Control first: the reading arrives there about half a second after the link comes up.
+                self.listenToControlBeforeAuthentication(peripheral)
                 // .default so this survives into a sysdiagnose: info and debug are
                 // memory-only and are not written to the log archive, which makes the
                 // auth handshake invisible in field diagnostics.
@@ -876,6 +874,14 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
         switch G7Opcode(rawValue: response[0]) {
         case .glucoseTx?:
             if let glucoseMessage = G7GlucoseMessage(data: response) {
+                if pendingAuth {
+                    log.default("Received glucose before observing authentication")
+                    delegateQueue.async {
+                        self.delegate?.sensor(self, logComms: "glucose received before authentication was observed")
+                    }
+                }
+                pendingAuth = false
+                manager.readingReceivedOnCurrentLink = true
                 handleGlucoseMessage(message: glucoseMessage, peripheralManager: peripheralManager)
             } else {
                 delegateQueue.async {
@@ -993,6 +999,9 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
             log.default("Observed authenticated session. enabling notifications for control characteristic.")
             pendingAuth = false
             peripheralManager.perform { (peripheral) in
+                guard !peripheral.isNotifying(.control) else {
+                    return
+                }
                 do {
                     try peripheral.listenToCharacteristic(.control)
                 } catch let error {
@@ -1004,6 +1013,20 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
             }
         } else {
             log.default("Ignoring authentication response: %{public}@", response.hexadecimalString)
+        }
+    }
+
+    // The other app may finish authenticating before we subscribe, so the
+    // authenticated notification can't be relied on to start listening.
+    private func listenToControlBeforeAuthentication(_ peripheral: G7PeripheralManager) {
+        guard !peripheral.isNotifying(.control) else {
+            return
+        }
+        log.default("Enabling notifications for control characteristic without observed authentication")
+        do {
+            try peripheral.listenToCharacteristic(.control)
+        } catch let error {
+            log.default("Error enabling control notifications before authentication: %{public}@", String(describing: error))
         }
     }
 

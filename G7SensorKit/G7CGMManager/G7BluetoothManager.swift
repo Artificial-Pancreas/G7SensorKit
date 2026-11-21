@@ -139,8 +139,6 @@ protocol G7AcquisitionArm: AnyObject {
     func restored(_ peripheral: CBPeripheral)
     /// A reading's own sensor timestamp.
     func noteReading(at timestamp: Date)
-    /// Any wake: put acquisition right if a lost callback left nothing standing.
-    func recheck()
 }
 
 class G7BluetoothManager: NSObject {
@@ -242,6 +240,9 @@ class G7BluetoothManager: NSObject {
     /// Whole seconds: CoreBluetooth rejects a fractional start delay as an invalid parameter.
     static let reconnectStartDelay = 30
 
+    /// Isolated to `managerQueue`. Without a reading the sensor may serve another link right away, so reconnect without the delay.
+    var readingReceivedOnCurrentLink = false
+
     /// There is exactly one of these per session, and a pairing run borrows
     /// it rather than building a second: only one central per app may claim
     /// the restore identifier, and sharing the central is what lets the
@@ -276,15 +277,6 @@ class G7BluetoothManager: NSObject {
 
         managerQueue.async {
             self.managerQueue_scanForPeripheral()
-        }
-    }
-
-    /// Re-derives the watch's acquisition from the central's own state on a wake; nothing on the phone.
-    func recheckAcquisition() {
-        managerQueue.async {
-            guard self.delegate != nil, self.centralManager.state == .poweredOn,
-                  (self.activePeripheral?.state ?? .disconnected) != .connected else { return }
-            self.acquisitionArm?.recheck()
         }
     }
 
@@ -531,6 +523,12 @@ class G7BluetoothManager: NSObject {
             }
             return
         }
+        guard readingReceivedOnCurrentLink else {
+            reconnectLog("Reconnecting without a start delay: no reading on the last link")
+            handleDiscoveredPeripheral(peripheral)
+            return
+        }
+        readingReceivedOnCurrentLink = false
         reconnectAfterAdvertisingTail(peripheral)
     }
 
@@ -683,6 +681,10 @@ extension G7BluetoothManager: CBCentralManagerDelegate {
         acquisitionArm?.connected(peripheral)
 
         log.default("%{public}@: %{public}@", #function, peripheral)
+
+        if peripheral == activePeripheral {
+            readingReceivedOnCurrentLink = false
+        }
 
         if let peripheralManager = managedPeripherals[peripheral.identifier] {
             peripheralManager.centralManager(central, didConnect: peripheral)

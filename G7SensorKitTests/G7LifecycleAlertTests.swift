@@ -115,7 +115,6 @@ class G7LifecycleAlertManagerTests: XCTestCase {
         let manager = G7CGMManager(state: state, sensor: sensor)
         recorder = RecordingDelegate()
         manager.cgmManagerDelegate = recorder
-        manager.delegateQueue = DispatchQueue.main
         return manager
     }
 
