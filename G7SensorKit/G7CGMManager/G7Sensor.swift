@@ -175,6 +175,8 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
 
     /// Used to detect connections that do not authenticate, signalling possible sensor switchover
     private var pendingAuth: Bool = false
+    /// The sensor answers on control only within an authenticated session.
+    private var controlResponseOnCurrentLink = false
     /// The last fresh pairing ended without the sensor confirming its Bluetooth bond.
     private var lastPairingBondUnconfirmed = false
 
@@ -327,6 +329,16 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
             }
         }
         beginSession(peripheralManager)
+    }
+
+    /// Another controller moved to a different sensor (or code): the watch's counterpart of a pairing,
+    /// on this session and its central. A second session would build a second central, and only one
+    /// per app may claim the restore identifier: on the watch the second gets `.unsupported` for good.
+    func switchSensor(credentials: G7SensorCredentials) {
+        bluetoothManager.disconnect()
+        bluetoothManager.forgetPeripheral()
+        reconfigure(mode: .direct, credentials: credentials)
+        bluetoothManager.scanForPeripheral()
     }
 
     public func scanForNewSensor() {
@@ -759,12 +771,13 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
             // In direct mode we authenticate ourselves and the sensor drops the
             // link at the end of every reading cycle, so this would fire
             // constantly; session end is read from the algorithm state instead.
-            if mode == .eavesdropping, pendingAuth, wasRemoteDisconnect {
+            if mode == .eavesdropping, pendingAuth, wasRemoteDisconnect, !controlResponseOnCurrentLink {
                 suspectedEndOfSession = true // Normal disconnect without auth is likely that G7 app stopped this session
             } else {
                 suspectedEndOfSession = false
             }
             pendingAuth = false
+            controlResponseOnCurrentLink = false
             backfillRequestPending = false
 
             delegateQueue.async {
@@ -865,6 +878,7 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
     func bluetoothManager(_ manager: G7BluetoothManager, peripheralManager: G7PeripheralManager, didReceiveControlResponse response: Data) {
 
         guard response.count > 0 else { return }
+        controlResponseOnCurrentLink = true
 
         log.default("Received control response: %{public}@", response.hexadecimalString)
         delegateQueue.async {
@@ -881,7 +895,6 @@ public final class G7Sensor: G7BluetoothManagerDelegate {
                     }
                 }
                 pendingAuth = false
-                manager.readingReceivedOnCurrentLink = true
                 handleGlucoseMessage(message: glucoseMessage, peripheralManager: peripheralManager)
             } else {
                 delegateQueue.async {
